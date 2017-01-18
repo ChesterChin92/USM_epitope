@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../includes/emicodb_conn.php';
+include '../includes/epitopedb_conn.php';
 //Disable error suppression @ when debug
 
 

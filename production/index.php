@@ -143,232 +143,389 @@
                 </div>
             </div>
             <!-- /top navigation -->
-<?php
-//Include required resources.
-include '../includes/epitopedb_conn.php';	  // make db connection      
+            <?php
+            //Include required resources.
+            include '../includes/epitopedb_conn.php';      // make db connection
 
 
-?>
-	
-	<title>Epitode  </title>
+            ?>
+
+            <title>Epitode</title>
 
 
-<body>
-<div class="right_col" role="main">
-<br>
+            <body style="font-size: small">
+            <div class="right_col" role="main">
+                <br>
 
-Epitope
-<?php
-//var_dump($_POST);
-if (isset($_POST['entry'])){
+                Epitope
+                <?php
+                //var_dump($_POST);
+                if (isset($_POST['entry'])) {
 
-$sql_query = "SELECT * FROM bio.epitope where Description like '%".$_POST['entry']."%';";
+                    $sql_query = "SELECT * FROM bio.epitope WHERE Description LIKE '%" . $_POST['entry'] . "%';";
 //    echo $sql_query;
-}
-?>
+                }
+                ?>
 
-<form action="index.php" method="post">
+                <form action="index.php" method="post">
 
+
+                    <br>
+                    <strong>Input :</strong> <input type="text" name="entry"/>
+                    ​<br>
+                    <strong>Input 2:</strong>
+                    <select class="" name="time">
+                        <option>ALL</option>
+                        <option>1pm</option>
+                        <option>4pm</option>
+                        <option>8pm</option>
+                    </select>
+                    ​<br>
+
+                    <strong>Peptide length:</strong>
+                    <select id="id_hla_len" name="hla_len">
+                        <option value="" selected="selected">--choose--</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                    </select>
+
+                    <select id="id_allele_list" name="allele_list">
+                        <option></option>
+                        <option value="HLA-A*01:01">HLA-A*01:01</option>
+                        <option value="HLA-A*02:01">HLA-A*02:01</option>
+                        <option value="HLA-A*02:06">HLA-A*02:06</option>
+                        <option value="HLA-A*03:01">HLA-A*03:01</option>
+                        <option value="HLA-A*11:01">HLA-A*11:01</option>
+                        <option value="HLA-A*23:01">HLA-A*23:01</option>
+                        <option value="HLA-A*24:02">HLA-A*24:02</option>
+                        <option value="HLA-A*25:01">HLA-A*25:01</option>
+                        <option value="HLA-A*26:01">HLA-A*26:01</option>
+                        <option value="HLA-A*29:02">HLA-A*29:02</option>
+                        <option value="HLA-A*30:01">HLA-A*30:01</option>
+                        <option value="HLA-A*30:02">HLA-A*30:02</option>
+                        <option value="HLA-A*31:01">HLA-A*31:01</option>
+                        <option value="HLA-A*32:01">HLA-A*32:01</option>
+                        <option value="HLA-A*33:03">HLA-A*33:03</option>
+                        <option value="HLA-A*68:01">HLA-A*68:01</option>
+                        <option value="HLA-A*68:02">HLA-A*68:02</option>
+                        <option value="HLA-A*74:01">HLA-A*74:01</option>
+                        <option value="HLA-B*07:02">HLA-B*07:02</option>
+                        <option value="HLA-B*08:01">HLA-B*08:01</option>
+                        <option value="HLA-B*13:01">HLA-B*13:01</option>
+                        <option value="HLA-B*13:02">HLA-B*13:02</option>
+                        <option value="HLA-B*14:02">HLA-B*14:02</option>
+                        <option value="HLA-B*15:01">HLA-B*15:01</option>
+                        <option value="HLA-B*15:02">HLA-B*15:02</option>
+                        <option value="HLA-B*15:25">HLA-B*15:25</option>
+                        <option value="HLA-B*18:01">HLA-B*18:01</option>
+                        <option value="HLA-B*27:02">HLA-B*27:02</option>
+                        <option value="HLA-B*27:05">HLA-B*27:05</option>
+                        <option value="HLA-B*35:01">HLA-B*35:01</option>
+                        <option value="HLA-B*35:03">HLA-B*35:03</option>
+                        <option value="HLA-B*37:01">HLA-B*37:01</option>
+                        <option value="HLA-B*38:01">HLA-B*38:01</option>
+                        <option value="HLA-B*39:01">HLA-B*39:01</option>
+                        <option value="HLA-B*40:01">HLA-B*40:01</option>
+                        <option value="HLA-B*40:02">HLA-B*40:02</option>
+                        <option value="HLA-B*44:02">HLA-B*44:02</option>
+                        <option value="HLA-B*44:03">HLA-B*44:03</option>
+                        <option value="HLA-B*46:01">HLA-B*46:01</option>
+                        <option value="HLA-B*48:01">HLA-B*48:01</option>
+                        <option value="HLA-B*49:01">HLA-B*49:01</option>
+                        <option value="HLA-B*50:01">HLA-B*50:01</option>
+                        <option value="HLA-B*51:01">HLA-B*51:01</option>
+                        <option value="HLA-B*52:01">HLA-B*52:01</option>
+                        <option value="HLA-B*53:01">HLA-B*53:01</option>
+                        <option value="HLA-B*55:01">HLA-B*55:01</option>
+                        <option value="HLA-B*56:01">HLA-B*56:01</option>
+                        <option value="HLA-B*57:01">HLA-B*57:01</option>
+                        <option value="HLA-B*58:01">HLA-B*58:01</option>
+                        <option value="HLA-B*58:02">HLA-B*58:02</option>
+                        <option value="HLA-C*01:02">HLA-C*01:02</option>
+                        <option value="HLA-C*02:02">HLA-C*02:02</option>
+                        <option value="HLA-C*02:09">HLA-C*02:09</option>
+                        <option value="HLA-C*03:02">HLA-C*03:02</option>
+                        <option value="HLA-C*03:03">HLA-C*03:03</option>
+                        <option value="HLA-C*03:04">HLA-C*03:04</option>
+                        <option value="HLA-C*04:01">HLA-C*04:01</option>
+                        <option value="HLA-C*05:01">HLA-C*05:01</option>
+                        <option value="HLA-C*06:02">HLA-C*06:02</option>
+                        <option value="HLA-C*07:01">HLA-C*07:01</option>
+                        <option value="HLA-C*07:02">HLA-C*07:02</option>
+                        <option value="HLA-C*07:04">HLA-C*07:04</option>
+                        <option value="HLA-C*08:01">HLA-C*08:01</option>
+                        <option value="HLA-C*08:02">HLA-C*08:02</option>
+                        <option value="HLA-C*12:02">HLA-C*12:02</option>
+                        <option value="HLA-C*12:03">HLA-C*12:03</option>
+                        <option value="HLA-C*14:02">HLA-C*14:02</option>
+                        <option value="HLA-C*15:02">HLA-C*15:02</option>
+                        <option value="HLA-C*16:01">HLA-C*16:01</option>
+                        <option value="HLA-C*17:01">HLA-C*17:01</option>
+                        <option value="HLA-E*01:01">HLA-E*01:01</option>
+                        <option value="HLA-E*01:03">HLA-E*01:03</option>
+                        <option value="HLA-G*01:01">HLA-G*01:01</option>
+                        <option value="HLA-G*01:02">HLA-G*01:02</option>
+                        <option value="HLA-G*01:03">HLA-G*01:03</option>
+                        <option value="HLA-G*01:04">HLA-G*01:04</option>
+                        <option value="HLA-G*01:06">HLA-G*01:06</option>
+                    </select>
 
 
 <br>
-<strong>Title :</strong> <input type="text" name="entry"/>
-​
-<input type="submit">
-</form>
+                    <strong>Sort peptides by</strong>
+                        <select size="1" name="sort_output" id="sort_output"><option value="percentile_rank" selected="">Percentile Rank</option><option value="position_in_sequence">Position in sequence</option></select>
 
 
- 
-<?php
+                    <br>
+                    <strong>Prediction Type</strong>
+                                    <select size="1" name="cutoff_type" id="cutoff_type">
+                                        <option value="none" selected="">All predictions</option>
+                                        <option value="MHC_IC50" disabled="disabled">IC50 below [cutoff] nM</option>
+                                        <option value="percent">Percent rank below [cutoff]</option>
+                                    </select>
+
+                                <div style="float: left; display: none;" id="cutoff">
+                                    cutoff <input type="text" name="cutoff_value" size="4" maxlength="6" title="This field is ignored if the option 'All predictions' is chosen on the left">
+                                </div>
 
 
-// echo "<td>".$row["Epitope_ID"]."</td>";
-// echo "<td>".$row["Object_Type"]."</td>";
-// echo "<td>".$row["Description"]."</td>";
-// echo "<td>".$row["Starting_Position"]."</td>";
-// echo "<td>".$row["Ending_Position"]."</td>";
-// echo "<td>".$row["`Non-peptidic_epitope_ChEBI_ID`"]."</td>";
-// echo "<td>".$row["Epitope_Synonyms"]."</td>";
-// echo "<td>".$row["Antigen_Name"]."</td>";
-// echo "<td>".$row["Antigen_ID"]."</td>";
-// echo "<td>".$row["Organism_Name"]."</td>";
-// echo "<td>".$row["Organism_ID"]."</td>";
-// echo "<td>".$row["Epitope_Comments"]."</td>";
 
-	//Check all fields before SQL Query Execution
-    if (isset($_POST['entry']))
-    {
 
-		echo "<table id=\"datatable\" class=\"table table-striped table-bordered dataTable no-footer\"
+
+                    <input type="submit">
+                </form>
+
+
+                <div class="col-sm-12">
+                    <?php
+
+
+                    // echo "<td>".$row["Epitope_ID"]."</td>";
+                    // echo "<td>".$row["Object_Type"]."</td>";
+                    // echo "<td>".$row["Description"]."</td>";
+                    // echo "<td>".$row["Starting_Position"]."</td>";
+                    // echo "<td>".$row["Ending_Position"]."</td>";
+                    // echo "<td>".$row["`Non-peptidic_epitope_ChEBI_ID`"]."</td>";
+                    // echo "<td>".$row["Epitope_Synonyms"]."</td>";
+                    // echo "<td>".$row["Antigen_Name"]."</td>";
+                    // echo "<td>".$row["Antigen_ID"]."</td>";
+                    // echo "<td>".$row["Organism_Name"]."</td>";
+                    // echo "<td>".$row["Organism_ID"]."</td>";
+                    // echo "<td>".$row["Epitope_Comments"]."</td>";
+
+                    //Check all fields before SQL Query Execution
+                    if (isset($_POST['entry'])) {
+
+                        echo "<table id=\"datatable\" class=\"table table-striped table-bordered dataTable no-footer\"
                                    role=\"grid\"
-                                   aria-describedby=\"datatable_info\">";
-								echo "<tr role=\"row\">";
-echo "<th>Epitope_ID</th>";
-echo "<th>Object_Type</th>";
-echo "<th>Description</th>";
-echo "<th>Starting_Position</th>";
-echo "<th>Ending_Position</th>";
-echo "<th>`Non-peptidic_epitope_ChEBI_ID`</th>";
-echo "<th>Epitope_Synonyms</th>";
-echo "<th>Antigen_Name</th>";
-echo "<th>Antigen_ID</th>";
-echo "<th>Organism_Name</th>";
-echo "<th>Organism_ID</th>";
-echo "<th>Epitope_Comments</th>";
-								echo "</tr>";
+                                   aria-describedby=\"datatable_info\" style='max-width: 800px'>";
+                        echo "<tr role=\"row\">";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Epitope_ID</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Object_Type</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Description</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Starting_Position</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Ending_Position</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">`Non-peptidic_epitope_ChEBI_ID`</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Epitope_Synonyms</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Antigen_Name</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Antigen_ID</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Organism_Name</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Organism_ID</th>";
+                        echo "<th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"datatable\" rowspan=\"1\"
+                                        colspan=\"1\"
+                                        aria-sort=\"ascending\" aria-label=\"Name: activate to sort column descending\"
+                                        style=\"width: 134px;\">Epitope_Comments</th>";
+                        echo "</tr>";
 
-		//Execute Query						
-		$result = mysqli_query($con,$sql_query) or die(mysqli_error($con));
-		
-
-		 if(mysqli_num_rows($result)>0)
-		 {
-		 		while ($row = mysqli_fetch_array($result)) 
-		 		{
-					echo "<tr>";
-							echo "<td>".$row["Epitope_ID"]."</td>";
-echo "<td>".$row["Object_Type"]."</td>";
-echo "<td>".$row["Description"]."</td>";
-echo "<td>".$row["Starting_Position"]."</td>";
-echo "<td>".$row["Ending_Position"]."</td>";
-echo "<td>".$row["Non-peptidic_epitope_ChEBI_ID"]."</td>";
-echo "<td>".$row["Epitope_Synonyms"]."</td>";
-echo "<td>".$row["Antigen_Name"]."</td>";
-echo "<td>".$row["Antigen_ID"]."</td>";
-echo "<td>".$row["Organism_Name"]."</td>";
-echo "<td>".$row["Organism_ID"]."</td>";
-echo "<td>".$row["Epitope_Comments"]."</td>";
-					echo "</tr>";
-
-				}
-                    
-          }
-          else
-          {
-          	echo "<tr><td colspan='6'>No Results</td></tr>";
-          }
-		//Close table generated on top.
-		echo "</table>";
-			
-	}
-    else{
-
-    }
-?>
-</div>
-
-
-    <!-- footer content -->
-    <footer>
-        <div class="pull-right">
-             <a href=""></a>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
+                        //Execute Query
+                        $result = mysqli_query($con, $sql_query) or die(mysqli_error($con));
 
 
-    <div id="custom_notifications" class="custom-notifications dsp_none">
-        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-        </ul>
-        <div class="clearfix"></div>
-        <div id="notif-group" class="tabbed_notifications"></div>
-    </div>
+                        if (mysqli_num_rows($result) > 0) {
+                            echo "<tbody>";
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo "<tr>";
+                                echo "<td>" . $row["Epitope_ID"] . "</td>";
+                                echo "<td>" . $row["Object_Type"] . "</td>";
+                                echo "<td>" . $row["Description"] . "</td>";
+                                echo "<td>" . $row["Starting_Position"] . "</td>";
+                                echo "<td>" . $row["Ending_Position"] . "</td>";
+                                echo "<td>" . $row["Non-peptidic_epitope_ChEBI_ID"] . "</td>";
+                                echo "<td>" . $row["Epitope_Synonyms"] . "</td>";
+                                echo "<td>" . $row["Antigen_Name"] . "</td>";
+                                echo "<td>" . $row["Antigen_ID"] . "</td>";
+                                echo "<td>" . $row["Organism_Name"] . "</td>";
+                                echo "<td>" . $row["Organism_ID"] . "</td>";
+                                echo "<td>" . $row["Epitope_Comments"] . "</td>";
+                                echo "</tr>";
 
-    <script src="../js/bootstrap.min.js"></script>
+                            }
+                            echo "</tbody>";
 
-    <!-- bootstrap progress js -->
-    <script src="../js/progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- icheck -->
-    <script src="../js/icheck/icheck.min.js"></script>
+                        } else {
+                            echo "<tr><td colspan='6'>No Results</td></tr>";
+                        }
+                        //Close table generated on top.
 
-    <script src="../js/custom.js"></script>
+                        echo "</table>";
 
+                    } else {
 
-    <!-- Datatables -->
-    <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>
-    <script src="js/datatables/tools/js/dataTables.tableTools.js"></script> -->
-
-    <!-- Datatables-->
-    <script src="../js/datatables/jquery.dataTables.min.js"></script>
-    <script src="../js/datatables/dataTables.bootstrap.js"></script>
-    <script src="../js/datatables/dataTables.buttons.min.js"></script>
-    <script src="../js/datatables/buttons.bootstrap.min.js"></script>
-    <script src="../js/datatables/jszip.min.js"></script>
-    <script src="../js/datatables/pdfmake.min.js"></script>
-    <script src="../js/datatables/vfs_fonts.js"></script>
-    <script src="../js/datatables/buttons.html5.min.js"></script>
-    <script src="../js/datatables/buttons.print.min.js"></script>
-    <script src="../js/datatables/dataTables.fixedHeader.min.js"></script>
-    <script src="../js/datatables/dataTables.keyTable.min.js"></script>
-    <script src="../js/datatables/dataTables.responsive.min.js"></script>
-    <script src="../js/datatables/responsive.bootstrap.min.js"></script>
-    <script src="../js/datatables/dataTables.scroller.min.js"></script>
-
-
-    <!-- pace -->
-    <script src="../js/pace/pace.min.js"></script>
-    <script>
-        var handleDataTableButtons = function () {
-                "use strict";
-                0 !== $("#datatable-buttons").length && $("#datatable-buttons").DataTable({
-                    dom: "Bfrtip",
-                    buttons: [{
-                        extend: "copy",
-                        className: "btn-sm"
-                    }, {
-                        extend: "csv",
-                        className: "btn-sm"
-                    }, {
-                        extend: "excel",
-                        className: "btn-sm"
-                    }, {
-                        extend: "pdf",
-                        className: "btn-sm"
-                    }, {
-                        extend: "print",
-                        className: "btn-sm"
-                    }],
-                    responsive: !0
-                })
-            },
-            TableManageButtons = function () {
-                "use strict";
-                return {
-                    init: function () {
-                        handleDataTableButtons()
                     }
-                }
-            }();
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#datatable').dataTable();
-            $('#datatable-keytable').DataTable({
-                keys: true
-            });
-            $('#datatable-responsive').DataTable();
-            $('#datatable-scroller').DataTable({
-                ajax: "js/datatables/json/scroller-demo.json",
-                deferRender: true,
-                scrollY: 380,
-                scrollCollapse: true,
-                scroller: true
-            });
-            var table = $('#datatable-fixed-header').DataTable({
-                fixedHeader: true
-            });
-        });
-        TableManageButtons.init();
-    </script>
+                    ?>
+                </div>
+            </div>
 
-    <!-- /datepicker -->
-    <!-- /footer content -->
-    </body>
 
-</html>
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    <a href=""></a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+
+
+            <div id="custom_notifications" class="custom-notifications dsp_none">
+                <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+                </ul>
+                <div class="clearfix"></div>
+                <div id="notif-group" class="tabbed_notifications"></div>
+            </div>
+
+            <script src="../js/bootstrap.min.js"></script>
+
+            <!-- bootstrap progress js -->
+            <script src="../js/progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- icheck -->
+            <script src="../js/icheck/icheck.min.js"></script>
+
+            <script src="../js/custom.js"></script>
+
+
+            <!-- Datatables -->
+            <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>
+            <script src="js/datatables/tools/js/dataTables.tableTools.js"></script> -->
+
+            <!-- Datatables-->
+            <script src="../js/datatables/jquery.dataTables.min.js"></script>
+            <script src="../js/datatables/dataTables.bootstrap.js"></script>
+            <script src="../js/datatables/dataTables.buttons.min.js"></script>
+            <script src="../js/datatables/buttons.bootstrap.min.js"></script>
+            <script src="../js/datatables/jszip.min.js"></script>
+            <script src="../js/datatables/pdfmake.min.js"></script>
+            <script src="../js/datatables/vfs_fonts.js"></script>
+            <script src="../js/datatables/buttons.html5.min.js"></script>
+            <script src="../js/datatables/buttons.print.min.js"></script>
+            <script src="../js/datatables/dataTables.fixedHeader.min.js"></script>
+            <script src="../js/datatables/dataTables.keyTable.min.js"></script>
+            <script src="../js/datatables/dataTables.responsive.min.js"></script>
+            <script src="../js/datatables/responsive.bootstrap.min.js"></script>
+            <script src="../js/datatables/dataTables.scroller.min.js"></script>
+
+
+            <!-- pace -->
+            <script src="../js/pace/pace.min.js"></script>
+            <script>
+                var handleDataTableButtons = function () {
+                        "use strict";
+                        0 !== $("#datatable-buttons").length && $("#datatable-buttons").DataTable({
+                            dom: "Bfrtip",
+                            buttons: [{
+                                extend: "copy",
+                                className: "btn-sm"
+                            }, {
+                                extend: "csv",
+                                className: "btn-sm"
+                            }, {
+                                extend: "excel",
+                                className: "btn-sm"
+                            }, {
+                                extend: "pdf",
+                                className: "btn-sm"
+                            }, {
+                                extend: "print",
+                                className: "btn-sm"
+                            }],
+                            responsive: !0
+                        })
+                    },
+                    TableManageButtons = function () {
+                        "use strict";
+                        return {
+                            init: function () {
+                                handleDataTableButtons()
+                            }
+                        }
+                    }();
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#datatable').dataTable();
+                    $('#datatable-keytable').DataTable({
+                        keys: true
+                    });
+                    $('#datatable-responsive').DataTable();
+                    $('#datatable-scroller').DataTable({
+                        ajax: "js/datatables/json/scroller-demo.json",
+                        deferRender: true,
+                        scrollY: 380,
+                        scrollCollapse: true,
+                        scroller: true
+                    });
+                    var table = $('#datatable-fixed-header').DataTable({
+                        fixedHeader: true
+                    });
+                });
+                TableManageButtons.init();
+            </script>
+
+            <!-- /datepicker -->
+            <!-- /footer content -->
+            </body>
+
+    </html>
 
 <?PHP
 //mysqli_free_result($result); 
- mysqli_close($con);
+mysqli_close($con);
 ?>
