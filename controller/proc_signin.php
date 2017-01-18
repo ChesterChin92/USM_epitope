@@ -52,7 +52,7 @@ if(mysqli_num_rows($result)>0){
 //            $_SESSION['userid']= $row["userid"];
 //            $_SESSION['admin']= "FALSE";
             $_SESSION['email'] = $row["email"];
-            header("Location: ../production/order_ref.php");
+            header("Location: ../production/index.php");
             exit;
         }
     }
