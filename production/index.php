@@ -173,14 +173,7 @@
                     <br>
                     <strong>Input :</strong> <input type="text" name="entry"/>
                     ​<br>
-                    <strong>Input 2:</strong>
-                    <select class="" name="time">
-                        <option>ALL</option>
-                        <option>1pm</option>
-                        <option>4pm</option>
-                        <option>8pm</option>
-                    </select>
-                    ​<br>
+
 
                     <strong>Peptide length:</strong>
                     <select id="id_hla_len" name="hla_len">
