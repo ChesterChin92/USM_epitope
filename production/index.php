@@ -70,15 +70,12 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Sample <span
+                                <li><a><i class="fa fa-edit"></i> T CELL ANALYSIS <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="">Sample</a>
+                                        <li><a href="">MHC CLASS 1</a>
                                         </li>
-                                        <li><a href="">Sample</a>
-                                        </li>
-                                        <li><a href="">Sample</a>
-                                        </li>
+
                                         <!--                                    <li><a href="../production/report-chart.php">Report-Chart[On Hold]</a>-->
                                         <!--                                    </li>-->
                                         <!--                                    <li><a href="../production/report-bi.php">Report-BI[On Hold]</a>-->
@@ -86,27 +83,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a><i class="fa fa-home"></i> Sample <span
-                                                class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href=".">Sample</a>
-                                        </li>
 
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-edit"></i>Sample <span
-                                                class="fa fa-chevron-down"></span></a>
-
-                                </li>
-
-                                <li><a><i class="fa fa-edit"></i> Sample <span class="fa fa-chevron-down"></span></a>
-
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="">Sample</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
 
                             </ul>
                         </div>
@@ -169,11 +146,9 @@
 
                 <form action="index.php" method="post">
 
-
                     <br>
                     <strong>Input :</strong> <input type="text" name="entry"/>
                     ​<br>
-
 
                     <strong>Peptide length:</strong>
                     <select id="id_hla_len" name="hla_len">
@@ -285,9 +260,6 @@
                                 <div style="float: left; display: none;" id="cutoff">
                                     cutoff <input type="text" name="cutoff_value" size="4" maxlength="6" title="This field is ignored if the option 'All predictions' is chosen on the left">
                                 </div>
-
-
-
 
 
                     <input type="submit">
